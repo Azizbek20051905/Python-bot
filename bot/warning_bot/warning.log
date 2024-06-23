@@ -1,0 +1,79 @@
+asctime == 06/17/24:21:40:13 |||------------|||
+ levelname == [ERROR] |||-----------|||
+ name == aiogram.event |||------------|||
+ msecs - 950 -------
+ Filename and funcName == (dispatcher.py).(_process_update)
+ lineno == (314)
+ message == Cause exception while process update id=509128511 by bot id=6779704270
+TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+Traceback (most recent call last):
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 308, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\fsm\middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 120, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 275, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\router.py", line 136, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 120, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\bot\core\handlers\callback.py", line 88, in next_book
+    await call.bot.edit_message_reply_markup(chat_id = call.message.chat.id, message_id=call.message.message_id, reply_markup=nexts)
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\client\bot.py", line 1434, in edit_message_reply_markup
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\client\bot.py", line 432, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\client\session\base.py", line 257, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\client\session\aiohttp.py", line 175, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noutbukcom\OneDrive\Ishchi stol\A\V.2.bookSearcherbot\env\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+asctime == 06/17/24:21:53:47 |||------------|||
+ levelname == [ERROR] |||-----------|||
+ name == aiogram.dispatcher |||------------|||
+ msecs - 407 -------
+ Filename and funcName == (dispatcher.py).(_listen_updates)
+ lineno == (218)
+ message == Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [The semaphore timeout period has expired]
+asctime == 06/17/24:21:53:47 |||------------|||
+ levelname == [WARNING] |||-----------|||
+ name == aiogram.dispatcher |||------------|||
+ msecs - 421 -------
+ Filename and funcName == (dispatcher.py).(_listen_updates)
+ lineno == (220)
+ message == Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6779704270)
